@@ -1,177 +1,189 @@
-# One-Sentence Story and Save the Cat
+# 一句话故事与 Save the Cat
 
-Use this file when the user asks for `一句话故事`, `logline`, `救猫咪`, `beat sheet`, or when a raw premise needs to become a pitchable story engine before full script work.
+当用户要 `一句话故事`、`logline`、`救猫咪`、`beat sheet`，或者一个灵感需要先变成可提案、可扩写的故事引擎时，读这个文件。
 
-This reference is a practical distillation of official Save the Cat materials plus John August and Craig Mazin's screenwriting discussion about what loglines are actually for.
+## 1. 一句话故事是什么
 
-## 1. What a one-sentence story is
+把 `一句话故事` 当成项目的工作 logline。
 
-Treat `一句话故事` as the working logline of the project:
+它不是：
 
-- not a slogan
-- not a theme statement
-- not a twist summary
-- not purple prose
+- 金句
+- 主题句
+- 文案
+- 世界观摘要
+- 故弄玄虚的谜语
 
-Its job is to give another person a handle on the story fast.
+它的工作只有一个：
 
-Useful mental model:
+- 让别人立刻知道这是什么故事，并愿意听你继续讲
 
-- Save the Cat: the logline is a single sentence that captures the entire story and is a foundation for development
-- John August / Craig Mazin: loglines are for other people; they are a handle or arrow toward the story, not the whole pitch
+判断标准很简单：
 
-Practical rule:
+- 听完能明白“这是一个什么电影 / 短片 / 剧”
+- 听完会想问“然后呢”
 
-Write a sentence that makes a stranger say either:
+如果两者都做不到，这条一句话故事还不能用。
 
-- `I get the movie`
-- `I want to hear the pitch`
+## 2. 一句话故事的基础结构
 
-If it does neither, it is not ready.
-
-## 2. Core ingredients of a usable one-sentence story
-
-Start from the official Save the Cat elements:
-
-- protagonist
-- antagonist or central obstacle
-- clear goal
-- open question or stakes
-
-For this skill, translate that into this working formula:
+默认使用这个工作公式：
 
 `一个怎样的人 + 被卷入怎样的反常处境 + 为了什么必须行动 + 如果失败会失去什么`
 
-Optional fifth element:
+在这个基础上，尽量再加一个：
 
-- `irony / contradiction`
+- `反讽`
+- `错位`
+- `关系撕扯`
+- `高概念钩子`
 
-This is often the difference between a merely clear sentence and a sellable one.
+也就是说，一句话故事至少要让人听见：
 
-Example shape:
+- 主角
+- 反常处境
+- 欲望 / 任务
+- 代价 / 危险
 
-- `一个从不相信鬼的人，在搬进一间凶宅后，为了找回失踪的妹妹，必须和唯一愿意帮他的女鬼结盟。`
+## 3. 生成一句话故事时怎么变化
 
-## 3. How to write one-sentence stories in this skill
+当用户只给灵感、情绪、设定或模糊画面时，默认生成 `3-5` 条候选。
 
-When the user gives a spark, generate `3-5` candidates that differ in engine, not wording.
+不要只做词语改写，要真的换故事引擎。
 
-Prefer these three lanes:
+优先变化这些维度：
 
-- `emotional`: strongest feeling, relationship first
-- `commercial`: clearest hook, easiest to pitch
-- `odd`: strangest but still filmable
+- 这到底是谁的故事
+- 他 / 她想要什么
+- 最大阻力是什么
+- 观众会被什么吸进去
+- 哪个关系在卖这个故事
 
-Each candidate should make a different choice about:
+默认可以沿这些方向出版本：
 
-- whose story it is
-- what the goal is
-- what the central opposition is
-- what image or irony is doing the selling
+- `情感向`：关系和情绪最强
+- `商业向`：钩子最清楚，一听就能卖
+- `悬疑向`：未知信息驱动推进
+- `怪谈向`：异样气质和反常规则
+- `荒诞向`：逻辑成立但世界偏斜
 
-## 4. Quality bar for one-sentence stories
+## 4. 一句话故事的质量门槛
 
-Keep the sentence:
+一句话故事最好满足至少三条：
 
-- clear enough to repeat from memory
-- specific enough to imply scenes
-- open enough that the screenplay still has discoveries left
+- 能被复述
+- 能看见画面
+- 能隐约感觉到冲突会升级
+- 能感到人物会被迫做选择
+- 能看出不是只有设定，没有故事
+- 能让人想继续开发
 
-Avoid:
+避免：
 
-- pure lore
-- stacked adjectives
-- backstory overload
-- theme words doing the work of conflict
-- explaining the world before naming the character problem
-- saving the reveal for so late that the sentence has no hook
+- 纯设定
+- 纯情绪
+- 纯主题
+- 反转故意藏到句子失去钩子
+- 形容词堆叠
+- 世界观名词多于人物困境
 
-Good diagnostic questions:
+## 5. 一句话故事轮的协作规则
 
-- can someone picture the poster from this sentence?
-- can someone sense conflict, not just setup?
-- does it imply a movie, not just a situation?
-- is the most interesting relationship visible?
-- if I remove the proper nouns, is the engine still strong?
+当用户还在挑一句话故事时：
 
-## 5. When not to over-enforce the one-sentence story
+- 默认只给候选，不往下写剧本
+- 如果用户说“给我最强的一条”，就只给一条
+- 如果用户说“不行，重来”，要换引擎，不换措辞
 
-Do not force elegant compression when the project is intentionally diffuse, ensemble-driven, essayistic, or anti-high-concept.
+当用户选中某条后：
 
-Use John August's warning here:
+- 把选中的那条视为当前项目底稿
+- 后续开发默认沿用它
+- 如果用户亲自改写了一条，优先沿用用户改写版
 
-- some stories do not summarize beautifully in one or two sentences
-- high-concept stories usually do
+如果这条一句话故事有根本问题：
 
-Operationally:
+- 直接指出问题
+- 给 `1-2` 条修正版
+- 不要擅自开启新项目
 
-- if the user is building a hooky premise, demand a strong one-sentence story
-- if the user is building an atmospheric or literary work, use the one-sentence story as a compass, not a cage
+## 6. 从一句话故事到开发包
 
-## 6. Save the Cat in this skill
+一句话故事一旦确认，下一步不是马上写满剧本，而是先做开发包。
 
-Use Save the Cat after the one-sentence story is approved.
+开发包默认回答：
 
-Role of Save the Cat here:
+- 当前锁定的一句话故事是什么
+- 这是什么类型 / 基调 / format
+- 观众到底是来感受什么的
+- 主角要什么
+- 最大阻力是什么
+- 代价是什么
+- 哪个反讽让它成立
+- 这条故事最适合往哪里长：短片、长片、剧集、微短剧、1 分钟改编
 
-- stress-test pacing
-- expose missing reversals
-- check whether the premise actually pays off
-- make the emotional change legible
+## 7. Save the Cat 在这个 skill 里的位置
 
-Do not use it as a law that flattens voice.
+Save the Cat 不是第一步，是第二步。
 
-## 7. The 15 beats, simplified for working use
+先有一句话故事，再用 Save the Cat 检查：
 
-1. `Opening Image` — who the hero is before change
-2. `Theme Stated` — the lesson or question the story will prove
-3. `Set-Up` — life, flaws, pressure, and what is broken
-4. `Catalyst` — disruption that breaks the old balance
-5. `Debate` — hesitation, refusal, fear, second thoughts
-6. `Break into Two` — active step into the new world of the story
-7. `B Story` — relationship line that teaches the real lesson
-8. `Fun and Games` — the promise of the premise; why we bought the ticket
-9. `Midpoint` — false victory or false defeat; stakes rise, clock starts
-10. `Bad Guys Close In` — internal and external pressure tighten
-11. `All Is Lost` — lowest point, with a whiff of death
-12. `Dark Night of the Soul` — collapse, reflection, moment of clarity
-13. `Break into Three` — new plan based on what has been learned
-14. `Finale` — execute the new plan and prove transformation
-15. `Final Image` — visual proof of change; opposite or echo of the opening
+- 节奏是否成立
+- 承诺是否兑现
+- 中段有没有塌
+- 结尾有没有真正反噬或变化
 
-## 8. How to actually apply Save the Cat
+在这个 skill 里，Save the Cat 是结构压力测试工具，不是必须照抄的模板。
 
-For this skill, use the beats in three ways:
+## 8. 15 beats 的工作化版本
 
-### A. Premise check
+1. `Opening Image`：改变前的人物状态
+2. `Theme Stated`：故事真正要验证的问题
+3. `Set-Up`：人物、缺陷、关系、旧秩序
+4. `Catalyst`：打破平衡的事件
+5. `Debate`：人物抗拒、犹豫、试图不进入故事
+6. `Break into Two`：主动跨进新处境
+7. `B Story`：关系线，往往承载真正的主题
+8. `Fun and Games`：兑现 premise 承诺，观众买票就是为了看这个
+9. `Midpoint`：假胜利或假失败，代价提高
+10. `Bad Guys Close In`：外部和内部压力一起逼近
+11. `All Is Lost`：最低点，要有“某种死亡”的感觉
+12. `Dark Night of the Soul`：崩塌、思考、明白真正问题
+13. `Break into Three`：新的理解带来新的行动方案
+14. `Finale`：证明人物真的变了，或真的付出了代价
+15. `Final Image`：和开头对应的最终画面
 
-Before outlining, ask:
+## 9. 什么时候用 Save the Cat
 
-- what is the `Fun and Games` promise?
-- what is the `Midpoint` reversal?
-- what exactly dies at `All Is Lost`?
-- what new understanding powers `Break into Three`?
-- what visual change closes `Final Image`?
+### A. 检查 premise 能不能长成故事
 
-If you cannot answer these, the story engine is still blurry.
+先问：
 
-### B. Outline pass
+- `Fun and Games` 到底是什么
+- `Midpoint` 怎么翻面
+- `All Is Lost` 死掉的到底是什么
+- `Break into Three` 新方案来自什么认知变化
+- `Final Image` 最后想留下什么画面
 
-Once the sentence is approved, map the beats loosely before scene listing.
+答不出来，说明 premise 还没站稳。
 
-Do not force page counts for short films or microdrama. Keep the function of the beat, not the original feature-film proportions.
+### B. 结构展开
 
-### C. Script doctor pass
+当一句话故事已确认，可以先做 Save the Cat 脊柱，再做分场。
 
-When a draft feels weak, locate the broken beat:
+短片、微短剧不要机械套页数比例，只保留功能。
 
-- weak first act often means fuzzy `Catalyst` or fake `Debate`
-- sagging middle often means weak `Fun and Games`, no real `Midpoint`, or soft `Bad Guys Close In`
-- flat ending often means no true `All Is Lost` or no changed plan in `Break into Three`
+### C. 剧本医生
 
-## 9. Condensed pitch structure
+当用户拿来初稿时，优先看哪一拍断了：
 
-Save the Cat's pitch article gives a practical 7-part reduced pitch:
+- 前段无聊：往往是 `Catalyst` 弱或 `Debate` 假
+- 中段塌陷：往往是 `Fun and Games` 弱、`Midpoint` 没翻面
+- 结尾无力：往往是没有真正的 `All Is Lost` 或 `Break into Three`
+
+## 10. 提案用压缩结构
+
+如果用户要快速 pitch，可以压成 7 点：
 
 1. Opening Image
 2. Catalyst
@@ -181,39 +193,8 @@ Save the Cat's pitch article gives a practical 7-part reduced pitch:
 6. Break into Three
 7. Final Image
 
-Use this compressed version when the user wants:
+这个版本适合：
 
-- a quick pitch
-- a 1-page synopsis spine
-- a clean meeting-room version of the story
-
-## 10. Default behavior for this skill
-
-When the user is early-stage:
-
-1. write `3-5` one-sentence stories
-2. pick the strongest one with the user
-3. map the Save the Cat spine
-4. only then expand into scenes, treatment, or pages
-
-When the user already has a draft:
-
-1. extract its current one-sentence story
-2. test whether that sentence is actually the movie on the page
-3. run a Save the Cat diagnosis to find structural drift
-4. propose rewrite moves
-
-## Source Notes
-
-Official Save the Cat:
-
-- https://savethecat.com/how-to-write-a-screenplay
-- https://savethecat.com/tips-and-tactics/how-and-why-to-write-a-good-logline
-- https://savethecat.com/tips-and-tactics/how-to-pitch-your-story
-- https://savethecat.com/wp-content/uploads/2019/07/STC_Crash_Course_Essential_Vocabulary.pdf
-- https://savethecat.com/wp-content/uploads/2013/12/STC_BeatSheetRev3.pdf
-- https://savethecat.com/about-the-beats/what-is-a-workshop
-
-Screenwriting craft context:
-
-- https://johnaugust.com/2020/scriptnotes-ep-469-loglines-are-for-other-people-transcript
+- 口头提案
+- 一页纸梗概
+- 会议室里快速讲明白一个故事
