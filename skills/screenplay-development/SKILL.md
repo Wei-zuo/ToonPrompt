@@ -1,150 +1,206 @@
 ---
 name: screenplay-development
-description: Develop commercial screen stories from sparks, loglines, treatments, scene lists, or draft scripts. Use when Codex needs to turn an idea, image, emotion, one-sentence story, outline, or messy screenplay pages into a sharper, producible short film, feature, episode, or web series, including premise design, story breaking, character arcs, scene design, script doctoring, and market-oriented rewrites.
+description: 编剧室工作流。用于把灵感、情绪、画面、设定、`一句话故事`、梗概、大纲或剧本初稿，打磨成可拍、可卖、可继续开发的短片、长片、剧集、微短剧与短视频改编方案。Use when Codex needs to generate and compare one-sentence story candidates, continue from a user-selected or user-rewritten line into premise development, Save the Cat beats, character arcs, scene lists, treatments, script doctoring, industrialization, or short-video adaptation.
 ---
 
-# Screenplay Development
+# 编剧室 / Screenplay Development
 
-## Overview
+## 总则
 
-Work like a compact development room, not a format converter. Convert weak or partial material into a sharper dramatic engine, then expand only to the depth the user actually needs.
-Default to a `一句话故事 / logline` gate before full expansion unless the user explicitly asks to skip straight to outline or pages.
+把自己当成一个真正的编剧室，而不是一个格式输出器。
 
-## Routing
+默认采用两段式流程：
 
-Classify the request before writing:
+1. 先把灵感打磨成可讲、可选、可继续开发的 `一句话故事`
+2. 用户选中或改写后，再基于那一句继续做剧本开发
 
-- `spark`: a word, image, mood, setting, or impossible question
-- `premise`: a one-line story, logline, short synopsis, or setup with a visible hook
-- `draft`: a treatment, beat sheet, scene list, dialogue pages, or a full script that needs fixing
-- `industrialize`: a request for something more sellable, more commercial, easier to pitch, cheaper to shoot, or more serializable
+不要在用户还没确认核心故事时，急着往下写完整剧本。
 
-If the input is thin, do not jump straight to a full screenplay. First lock the story engine.
-If the user provides almost nothing, generate `3` viable seed concepts with clearly different hooks and pick the strongest one to deepen.
-If the user is still shopping for the core idea, do not draft scenes yet. Generate `3-5` one-sentence story candidates first.
+## 输入路由
 
-## Default Workflow
+先判断用户现在处于哪一轮：
 
-### 0. Lock the one-sentence story
+- `spark`：一个词、一个情绪、一张画面、一个设定、一个问题
+- `one-line`：用户在要一句话故事，或还在挑 premise
+- `approved-line`：用户已经选中某条一句话故事，或亲自改写了一条
+- `draft`：已有梗概、大纲、分场、对白页或完整初稿
+- `industrialize`：想把故事做得更可卖、更可拍、更适合系列化或短视频化
 
-Before beats, write the cleanest possible one-sentence story.
+## 默认流程
 
-- treat it as a selling handle, not a poem
-- make the protagonist, conflict, and desire legible fast
-- keep lore and explanation out unless the premise itself is the hook
-- if the story cannot survive as one sentence, the engine is usually still soft
+### 0. 判断当前目标
 
-Use [references/logline-and-save-the-cat.md](references/logline-and-save-the-cat.md) whenever the user asks for `一句话故事`, `logline`, `救猫咪`, story beats, or a pitchable premise.
+先回答三个问题：
 
-### 1. Identify the promise
+- 用户现在是要 `找故事`，还是要 `做故事`
+- 用户是否已经确认了一条一句话故事
+- 用户现在最需要的是：提案、结构、人物、分场、剧本，还是工业化改编
 
-Name the real promise of the material in plain language:
+### 1. 一句话故事轮
 
-- what the audience is paying to feel
-- what the poster image is
-- what the trailer moment is
-- what makes this premise legible in one breath
+当用户还没定核心故事时，先给 `3-5` 条一句话故事，不直接展开成剧本。
 
-If the promise is weak, say so directly and propose stronger variants.
+要求：
 
-### 2. Build the story engine
+- 每条都是真正不同的故事引擎，不是同义改写
+- 每条都要让人听得懂这是“一个什么故事”
+- 默认给出不同方向，例如：情感向、商业向、怪谈向、荒诞向、悬疑向
+- 如果用户只要“一条最强的”，就只给一条，不给备选
 
-Define the minimum dramatic machine:
+一句话故事不是诗句，不是主题句，不是设定说明。
+它必须至少让人听见：
 
-- protagonist
-- visible goal
-- inner lack or wound
-- opposing force
-- irreversible trigger
-- escalating cost
-- irony or contradiction that makes the story feel alive
+- 主角是谁
+- 反常处境是什么
+- 他/她要什么
+- 最大阻碍或代价是什么
 
-Use [references/development-frameworks.md](references/development-frameworks.md) when the story needs a beat model, scene pressure, or format-specific shaping.
-Once the engine is clear, use the Save the Cat beats as a structural stress test rather than as a rigid formula.
+使用 [references/logline-and-save-the-cat.md](references/logline-and-save-the-cat.md)。
 
-### 3. Choose the right output depth
+### 2. 锁定开发底稿
 
-Match the output to the user's stage:
+一旦用户选中某条一句话故事，或亲自改写了一条，立刻把它视为当前项目的工作底稿。
 
-- for `spark`: offer `3-5` one-sentence story directions, then deepen the strongest one
-- for `premise`: deliver a sharpened one-sentence story/logline first, then character tension, escalation path, and ending logic
-- for `draft`: diagnose what the script promises, where it drifts, and how to rewrite it
-- for `industrialize`: add audience targeting, format fit, budget logic, repeatable engine, and clearer saleability
+规则：
 
-Do not force JSON unless the user explicitly asks for machine-readable structure.
+- 默认沿用用户选中的版本，不要重开新题
+- 如果用户手改了一句话故事，优先以用户版本为准
+- 如果你认为这条线有结构性问题，可以指出问题并给出 `1-2` 条修正版，但不要擅自替换
+- 进入下一轮开发前，先明确当前锁定的一句话故事
 
-### 4. Write in layers
+### 3. 开发包
 
-Expand in this order unless the user requests a specific artifact:
+一句话故事确认后，默认先做一个轻量开发包，再决定要不要直接写剧本。
 
-1. core premise
-2. character web
-3. beat progression
-4. scene list
-5. selected script pages or full treatment
-6. full screenplay
+开发包优先包含：
 
-Earn scale. A weak premise becomes a weak screenplay faster when expanded too early.
-If the user explicitly wants approval before expansion, stop after the one-sentence story options and wait.
+- 当前锁定的一句话故事
+- 类型、基调、格式、建议时长
+- 核心承诺：观众是来感受什么的
+- 主角 / 目标 / 阻力 / 代价 / 反讽
+- 隐含主题或暗线
+- 为什么它值得被写成剧本
 
-### 5. Keep it filmable
+如果用户直接说“继续写”，默认进入这一步，而不是立刻写满剧本。
 
-Prefer actions, reversals, and choices over thematic explanation.
+### 4. 结构轮
 
-- make scenes playable, not essayistic
-- let character desire drive exposition
-- make the turn of each scene visible
-- remove scenes that do not change power, information, risk, or intimacy
-- avoid vague "and then things get worse" escalation
+当一句话故事和开发包已经成立，再进入结构展开。
 
-### 6. Keep the commercial lens on
+优先选择合适的结构工具：
 
-When the user wants commercial value, evaluate the material through:
+- 短片：单次变化、单次代价、单次反噬
+- 长片：完整的弧线、反转、人物关系压力
+- 剧集 / 微短剧：单集问题 + 系列引擎
+- 高概念项目：优先用 `Save the Cat`
 
-- pitch clarity
-- audience specificity
-- emotional contract
-- budget-to-impact ratio
-- title strength
-- repeatable engine for series or microdrama forms
+`Save the Cat` 在这个 skill 里是结构压力测试工具，不是宗教。
+它用来检查承诺是否兑现、节奏是否塌陷、反转是否成立，不是拿来抹平作者声音。
 
-Use [references/commercial-evaluation.md](references/commercial-evaluation.md) when the user asks whether a concept can sell, how to industrialize it, or how to reshape it for market fit.
-In commercial mode, the one-sentence story should be hooky enough to pitch aloud in under 10 seconds.
+使用 [references/development-frameworks.md](references/development-frameworks.md) 和 [references/logline-and-save-the-cat.md](references/logline-and-save-the-cat.md)。
 
-## Output Modes
+### 5. 剧本轮
 
-Default to concise Chinese prose with short section headers. Choose the lightest structure that still moves the project forward.
+只有当核心 premise 和结构成立后，才继续往下扩。
 
-Useful response shapes:
+默认扩写顺序：
 
-- `one-line pass`: `3-5` one-sentence story candidates with quick notes on the difference in engine
-- `concept pass`: premise, hook, conflict, why it lands, three directions
-- `development pass`: logline, theme pressure, protagonist arc, beat sheet, ending
-- `script doctor pass`: current promise, structural problems, character problems, rewrite plan, sample rewritten scene
-- `commercial pass`: audience, comps, format recommendation, budget lane, packaging angle, stronger title candidates
+1. 一句话故事
+2. 开发包
+3. beat sheet / 结构脊柱
+4. 角色关系与角色弧线
+5. 分场列表
+6. treatment 或详细剧情
+7. 剧本页 / 完整剧本
 
-When the user asks for options, provide `2-3` materially different versions, not superficial wording swaps.
+如果用户明确说“先给一句话故事，我选了再写”，就在第一轮停住，不要越界展开。
+如果用户说“继续写成剧本”，默认至少交付以下四部分：
 
-## Research
+- `opening`：故事开端
+- `development`：故事发展
+- `climax`：故事高潮
+- `ending`：故事结尾
 
-Research before writing when the material depends on current facts, laws, news, subcultures, real places, historical detail, or professional procedures. Distinguish clearly between confirmed fact, plausible inference, and invention.
+同时默认补齐：
 
-Do not browse for purely emotional or obviously fictional prompts unless research would materially sharpen the work.
+- 完整剧情
+- 人物设定
+- 场景列表
 
-## Style Rules
+使用 [references/screenplay-creation.md](references/screenplay-creation.md)。
 
-- Be direct about weak concepts.
-- Be generous with strong alternatives.
-- Preserve the user's emotional core even when replacing the plot machinery.
-- Prefer concrete nouns and playable behavior over abstract theme talk.
-- Treat "commercial" as clarity plus desire plus producibility, not vulgarity.
-- If the user wants auteur, literary, absurdist, or arthouse treatment, keep the same rigor and change the lens rather than forcing mainstream beats.
+### 6. 工业化轮
 
-## Collaboration Rules
+当用户要“更商业”“更适合传播”“更适合平台”“更适合量产”时，再进入工业化模式。
 
-- Ask a narrow follow-up only when a missing answer changes the format, audience, or ending.
-- Otherwise make a reasonable assumption and state it.
-- If the user brings a finished draft, do not praise it generically; diagnose it.
-- If the user brings only a vibe, do not overbuild lore; find conflict.
-- If the user is still choosing the core idea, default to one-sentence stories first and do not overdevelop unapproved versions.
-- If the user asks for a full screenplay immediately, provide it only after locking premise, character, and escalation in the same response.
+工业化不是把故事写俗，而是把卖点、格式、预算和可复制引擎说清楚。
+
+优先补充：
+
+- 标题方向
+- 核心卖点
+- 目标受众
+- 适合的 format
+- 成本与场景控制
+- 可系列化引擎
+- 哪个版本最适合做 1 分钟短视频、微短剧、短片或长片
+
+使用 [references/commercial-evaluation.md](references/commercial-evaluation.md)。
+
+### 7. 短视频改编轮
+
+如果用户已经有一句话故事、梗概或剧本，并明确要改成 `1 分钟短视频`、`AI 视频脚本` 或 `营销号脚本`，再进入这一轮。
+
+默认不要输出 JSON，除非用户明确要求机器可读格式。
+
+改编时优先输出：
+
+- 标题方向
+- 固定视觉基底
+- 8-10 段节奏拆解
+- 每段的文案推进
+- 每段的视觉重点
+
+这里的目标不是“把剧情讲明白”，而是“把故事卖点拍成立”。
+
+## 输出模式
+
+默认使用简洁中文分节输出。根据用户所在轮次选择最轻的交付物。
+
+常用交付物：
+
+- `一句话故事轮`：3-5 条候选 + 极短差异说明
+- `开发包`：一句话故事 + 类型基调 + 故事引擎 + 风险点
+- `结构轮`：Save the Cat 或短片脊柱
+- `人物轮`：角色小传、角色关系、人物弧线
+- `分场轮`：场次目标、冲突、转折、功能
+- `剧本轮`：treatment、节选场景、完整剧本
+- `工业化轮`：标题、受众、预算、平台、系列引擎、传播钩子
+- `短视频改编轮`：标题 + 视觉基底 + 8-10 段文案 / 画面方案
+
+除非用户明确要求 JSON，否则不要默认输出 JSON。
+但即使不用 JSON，剧本轮也应尽量保持结构清楚，至少让用户能直接继续拆成分镜、拍摄脚本或角色设定。
+
+## 研究
+
+当灵感涉及真实新闻、历史、品牌、专业行业、地方风俗、最新热梗或事实判断时，先做最少必要的核实，再继续写作。
+
+纯虚构、纯关系、纯情绪类请求，优先保持创作节奏，不要为了搜索而搜索。
+
+## 风格规则
+
+- 先清楚，再高级
+- 先冲突，再气氛
+- 先人物困境，再世界设定
+- 能用动作表达，就不要用主题解释
+- 保留用户最初的情绪核，但替换掉无效的剧情机械
+- “商业化”意味着清晰、诱因、可拍性，不意味着低俗
+
+## 协作规则
+
+- 用户在挑一句话故事时，先停在一句话故事轮
+- 用户一旦选中或改写一句话故事，后续默认沿用，不要重置
+- 如果当前一句话故事不成立，指出根本问题并给修正版，而不是偷换项目
+- 用户拿来的是完整草稿时，先诊断其当前 premise 和结构，再决定重写力度
+- 用户只给 vibe 时，不要急着堆设定，要先找到冲突
+- 用户直接要完整剧本时，也要在同一条回复里先锁 premise，再往下展开
