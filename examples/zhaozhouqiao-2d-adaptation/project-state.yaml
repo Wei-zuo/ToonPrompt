@@ -1,0 +1,41 @@
+project:
+  id: "zhaozhouqiao-001"
+  name: "zhaozhouqiao-2d-adaptation"
+  platform: "16:9 horizontal master"
+  language: "zh-CN"
+  duration_target_sec: 180
+  stage: "production-packet"
+  owner: "producer-agent"
+
+artifacts:
+  brief: "projects/zhaozhouqiao-001/brief.md"
+  story_package: "projects/zhaozhouqiao-001/story_package.md"
+  art_package: "projects/zhaozhouqiao-001/art_package.md"
+  storyboard: "projects/zhaozhouqiao-001/storyboard.md"
+  ad_feedback: "projects/zhaozhouqiao-001/ad_feedback.md"
+  schedule: "projects/zhaozhouqiao-001/schedule.md"
+  production_todo: "projects/zhaozhouqiao-001/production_todo.md"
+  production_packet: "projects/zhaozhouqiao-001/production_packet.md"
+  production_report: "projects/zhaozhouqiao-001/production_report.md"
+  asset_manifest: "projects/zhaozhouqiao-001/asset_manifest.md"
+
+approvals:
+  brief: "approved"
+  story_package: "approved"
+  art_package: "approved"
+  storyboard: "approved-with-notes"
+  ad_feedback: "approved"
+  production_packet: "ready-for-production"
+  production: "not-started"
+
+rework:
+  required: false
+  stage: ""
+  owner: ""
+  reason: ""
+
+risks:
+  story_risk: false
+  art_risk: true
+  storyboard_risk: true
+  production_risk: true
