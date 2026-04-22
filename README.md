@@ -2,7 +2,7 @@
 
 ## 中文简介
 
-`ToonPrompt` 目前开源了三个可直接放进 Codex 的技能：
+`Producer.md` 目前开源了三个可直接放进 Codex 的技能：
 
 - `screenplay-development`：把灵感、梗概和草稿打磨成更可拍、更可卖的剧本
 - `character-prompt-engine`：把角色设定、服化道、镜头与气质需求压缩成可直接出图的人设/定妆照提示词
@@ -17,7 +17,7 @@
 
 所以如果你想理解 `ToonPrompt` 的整体价值，最好的方式不是把它看成 3 个分散技能，而是看成 1 套由制片驱动的视频前期 agent 群。
 
-## 把 ToonPrompt 看成一个视频 Agent 群
+## 把 Producer.md 看成一个视频 Agent 群
 
 原型说明文档见 [docs/agent-system-prototype.md](docs/agent-system-prototype.md)。
 
