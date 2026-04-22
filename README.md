@@ -1,12 +1,12 @@
-# Producer.md
+# Slate
 
 ## 中文简介
 
-`Producer.md` 目前开源了三个可直接放进 Codex 的技能：
+`Slate` 目前开源了三个可直接放进 Codex 的技能：
 
 - `screenplay-development`：把灵感、梗概和草稿打磨成更可拍、更可卖的剧本
 - `character-prompt-engine`：把角色设定、服化道、镜头与气质需求压缩成可直接出图的人设/定妆照提示词
-- `video-agent-orchestration`：把 brief、现成剧本或改编任务，组织成制片驱动的视频 agent 流程，并整理出可交给生产层的 `production packet`
+- `video-agent-orchestration`：把 brief、现成剧本或改编任务，按制片逻辑逐阶段推进，整理出可交给生产层的 `production packet`
 
 这三个 skill 里，主轴其实是 `video-agent-orchestration`。
 
@@ -15,9 +15,9 @@
 - `screenplay-development` 融进 `编剧 Agent`
 - `character-prompt-engine` 融进 `美术设计 Agent`
 
-所以如果你想理解 `ToonPrompt` 的整体价值，最好的方式不是把它看成 3 个分散技能，而是看成 1 套由制片驱动的视频前期 agent 群。
+所以如果你想理解 `Slate` 的整体价值，最好的方式不是把它看成 3 个分散技能，而是把它看成 1 套由制片逻辑驱动的视频前期工作流规范。
 
-## 把 Producer.md 看成一个视频 Agent 群
+## 把 Slate 看成一套视频前期工作流规范
 
 原型说明文档见 [docs/agent-system-prototype.md](docs/agent-system-prototype.md)。
 
@@ -35,6 +35,8 @@ flowchart TD
     I --> B
 ```
 
+> **当前范围说明**：Slate 是一套提示词规范（Codex skill），每个阶段由用户手动调用对应 skill 推进。生产层（生产 Agent → 镜头产出）尚未实现自动对接，`production packet` 是当前流程的交付终点。
+
 ### 角色分工
 
 | 角色 | 主要工作 | 不负责 | 关键输出 | 内嵌能力 |
@@ -47,9 +49,9 @@ flowchart TD
 
 ### `video-agent-orchestration` 在里面做什么
 
-它不是“替你写一份文档”的 skill，而是整个流程的调度器。
+它是一套提示词规范，定义了角色分工、阶段顺序、交接文件和阶段门，让用户在 Codex 中手动按顺序调用各 skill 时，每一步都有明确的输入要求和输出标准。
 
-它主要负责 5 件事：
+它主要约定 5 件事：
 
 1. 定义入口：这是 `brief`、`现成剧本`、`改编任务` 还是 `救火重组`
 2. 定义顺序：先编剧，再美术，再副导演，再回到制片整合
@@ -57,7 +59,7 @@ flowchart TD
 4. 定义阶段门：生产包没完整之前，`生产 Agent` 不开工
 5. 定义最终交付：把零散剧本、美术、分镜资料收束成 `production packet`
 
-换句话说，它解决的不是“某一步生成质量不够高”，而是“项目明明有很多材料，却一直进不了生产”。
+换句话说，它解决的不是"某一步生成质量不够高"，而是"项目明明有很多材料，却一直进不了生产"。
 
 ## 三个 Skill 各自怎么用
 
@@ -124,27 +126,27 @@ Use $video-agent-orchestration 把这个剧本改编成 2D 动画前期生产包
 仓库拉取链接：
 
 ```text
-https://github.com/Wei-zuo/ToonPrompt.git
+https://github.com/Wei-zuo/Slate.git
 ```
 
 如果你使用 OpenClaw，可以把这三个 skill 拉到共享 skills 目录：
 
 ```bash
-git clone https://github.com/Wei-zuo/ToonPrompt.git
+git clone https://github.com/Wei-zuo/Slate.git
 mkdir -p ~/.openclaw/skills
-cp -R ToonPrompt/skills/character-prompt-engine ~/.openclaw/skills/
-cp -R ToonPrompt/skills/screenplay-development ~/.openclaw/skills/
-cp -R ToonPrompt/skills/video-agent-orchestration ~/.openclaw/skills/
+cp -R Slate/skills/character-prompt-engine ~/.openclaw/skills/
+cp -R Slate/skills/screenplay-development ~/.openclaw/skills/
+cp -R Slate/skills/video-agent-orchestration ~/.openclaw/skills/
 ```
 
 如果你只想装到当前 workspace：
 
 ```bash
-git clone https://github.com/Wei-zuo/ToonPrompt.git
+git clone https://github.com/Wei-zuo/Slate.git
 mkdir -p ./skills
-cp -R ToonPrompt/skills/character-prompt-engine ./skills/
-cp -R ToonPrompt/skills/screenplay-development ./skills/
-cp -R ToonPrompt/skills/video-agent-orchestration ./skills/
+cp -R Slate/skills/character-prompt-engine ./skills/
+cp -R Slate/skills/screenplay-development ./skills/
+cp -R Slate/skills/video-agent-orchestration ./skills/
 ```
 
 重开一个新的 OpenClaw session 后，skill 就会被加载。
@@ -188,7 +190,7 @@ examples/
 
 完整案例见 [examples/zhaozhouqiao-2d-adaptation/README.md](examples/zhaozhouqiao-2d-adaptation/README.md)。
 
-这个案例不是为了证明“模型能不能一键出片”，而是为了验证这套 agent 群能不能把一个已有剧本，稳定推进到 `production packet`。
+这个案例不是为了证明"模型能不能一键出片"，而是为了验证这套 agent 群能不能把一个已有剧本，稳定推进到 `production packet`。
 
 案例输入：
 
