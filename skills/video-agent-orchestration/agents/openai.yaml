@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频 agent 编排"
+  short_description: "把 brief 或现成剧本整理成制片驱动的视频生产包"
+  default_prompt: "Use $video-agent-orchestration 把这个剧本改编成 2D 动画前期生产包，并在编剧阶段调用 $screenplay-development、在美术阶段调用 $character-prompt-engine。"
