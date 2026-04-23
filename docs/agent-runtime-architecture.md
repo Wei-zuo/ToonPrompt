@@ -2,65 +2,19 @@
 
 这份文档回答一个核心问题：
 
-`Slate` 里的五个角色，怎么从“提示词模板”升级成“真 Agent”。
+Slate v0.3 怎么从“3 个 skill + 手动切换”升级成“可安装到 OpenClaw 的六角色 runtime”。
 
 ## 先说结论
 
-如果目标是把 `制片 -> 编剧 -> 美术设计 -> 副导演 -> 生产` 做成一条真的可执行流水线，第一层不能只靠 skill 文档切换。
+Slate 的 runtime 不是聊天式 multi-agent，而是**制片驱动的状态图**。
 
-至少要补三层：
-
-1. `编排框架`：把角色链变成有状态的图
-2. `结构化输出`：把每阶段产出变成机器可读对象
-3. `状态机 + 回退`：把审核打回和停止条件写死
-
-在这个仓库里，推荐做法是：
+核心选择：
 
 - 顶层编排：`LangGraph`
-- 结构化产出：`Pydantic + JSON Schema`
-- 模型执行层：可以接 `OpenAI Structured Outputs`，也可以在单节点里嵌 `OpenAI Agents SDK`
-
-## 为什么顶层选 LangGraph
-
-这套场景的关键不是“多 agent 会不会聊天”，而是：
-
-- 能不能把流程固定成状态图
-- 能不能保存中间状态
-- 能不能在副导演打回时只重跑某一段
-- 能不能限制 revision 次数，避免无限循环
-
-这类要求更像 `stateful workflow`，不是自由对话式 handoff。
-
-`LangGraph` 更适合做顶层，原因是：
-
-- 它本身就是图式编排
-- 节点和边是显式的
-- 适合长流程、可恢复执行和人工介入
-- 很容易把 `审核通过 / 打回编剧 / 打回美术 / 失败终止` 写成明确路由
-
-### 其他方案在这套场景里的位置
-
-`CrewAI`
-
-- 更适合快速搭 `crew + task` 风格流程
-- 上手更快
-- 但如果你要严控状态、回退边和终止条件，通常还是要自己补很多约束
-
-`AutoGen`
-
-- 适合多 agent 对话、群聊协作、复杂代理互动
-- 但对这种“制片驱动、阶段清晰、可回退”的生产图来说，不一定是最克制的第一选择
-
-`OpenAI Agents SDK`
-
-- 很适合做单节点里的专业 agent
-- 也适合 handoff、guardrail、tool use
-- 但仓库这一层更需要“顶层状态图”，所以更适合作为 `节点执行层`，而不是整个流程的唯一骨架
-
-换句话说：
-
-- `LangGraph` 负责总图
-- `OpenAI Structured Outputs / Agents SDK` 负责节点内的结构化生成
+- 结构化产出：`Pydantic`
+- 模型能力描述：`ModelProfile`
+- 中枢资产层：`AssetLibrary`
+- 执行层：`pending_image_jobs` / `pending_video_jobs`
 
 ## 真 Agent 版流程图
 
@@ -68,160 +22,189 @@
 flowchart TD
     A["Producer Intake"] --> B["Screenwriter Agent"]
     B --> C["Art Design Agent"]
-    C --> D["Assistant Director Review"]
-    D -->|approved| E["Producer Integration"]
-    D -->|revise_story| B
-    D -->|revise_art| C
-    D -->|revise_storyboard| D
-    D -->|blocked / revision_limit_exceeded| F["Fail Closed"]
-    E -->|packet_ready & run_production=true| G["Production Agent"]
-    E -->|packet_ready & run_production=false| H["Done"]
-    G --> H
+    C --> D["Image Production (asset jobs)"]
+    D --> E["Assistant Director Cut"]
+    E --> F["Image Production (frame jobs)"]
+    F --> G["Assistant Director Review"]
+    G -->|approved| H["Producer Integration"]
+    G -->|revise_story| B
+    G -->|revise_art| C
+    G -->|revise_storyboard| E
+    G -->|blocked / budget_exceeded| Z["Fail Closed"]
+    H --> I["Video Production"]
+    I --> J["Done"]
 ```
 
-这个图和之前最大区别在于：
+## 为什么要有 AssetLibrary
 
-- 回退边是显式的
-- 终止边是显式的
-- 不再靠人工 `Use $xxx` 切换角色
+Slate 解决的一个根问题是：名字本身不是视觉资产。
 
-## 结构化产出，不再只靠 Markdown
+`鲁班`、`张果老`、`赵州桥` 这些词，模型不天然知道它们长什么样。于是 runtime 先把它们编成 `Asset`，由美术设计 / 图片生产补齐参考图，再由 `compile_shot` 把镜头里的名字解析成：
 
-第二层关键变化是：每个角色不只输出一份文档，还要输出一份机器可读对象。
+- reference image
+- textual description
+- style pack
+- camera spec
 
-例如：
+没有 `AssetLibrary`，后面的 `ShotRenderRequest` 就会一直漂在纯文本层。
 
-### `ProjectBrief`
+## 结构化产出
 
-- `project_id`
-- `route`
-- `title`
-- `goal`
-- `format`
-- `target_duration_seconds`
-- `required_elements`
-- `forbidden_drift`
+### 1. Producer
 
-### `StoryPackage`
+- `ProjectBrief`
+- stub `Asset[]`
+- `ProductionPacket`
 
-- `logline`
-- `characters`
-- `scenes`
-- `beats`
-- `total_shots`
-- `narration_style`
+### 2. Screenwriter
 
-### `ArtPackage`
+- `StoryPackage`
+  - `characters: list[CharacterCard]`
+  - `scenes: list[SceneSpec]`
+  - `beats: list[StoryBeat]`
 
-- `character_anchors`
-- `environment_constraints`
-- `palette`
-- `prompt_blocks`
+### 3. Art Design
 
-### `StoryboardPackage`
+- `ArtGenerationPlan`
+  - `style_pack_id`
+  - `asset_jobs: list[ImageJob]`
 
-- `shots`
-- `total_duration_seconds`
-- `high_risk_shots`
-- `first_test_shots`
+### 4. Assistant Director
 
-### `AdFeedback`
+- `StoryboardPackage`
+  - `shots: list[Shot]`
+  - `first_test_shot_ids`
+- `AdFeedback`
 
-- `decision`
-- `blocking_issues`
-- `revision_request`
+### 5. Production
 
-### `ProductionPacket`
+- `ShotRenderRequest`
+- `VideoJob`
 
-- `brief`
-- `story`
-- `art`
-- `storyboard`
-- `locked_constraints`
-- `todo_items`
+## 新 schema 概览
 
-这些对象的目标不是替代 markdown，而是让 markdown 变成“给人看”，JSON/Pydantic 变成“给下游 agent 和程序消费”。
+### `Asset`
 
-## 回退机制怎么设计
+核心字段：
 
-副导演不是简单写一句“这里不行”，而是必须输出结构化反馈：
+- `asset_id`
+- `asset_type`
+- `name`
+- `aliases`
+- `description`
+- `visual_hooks`
+- `reference_image_paths`
+- `status`
 
-```json
-{
-  "decision": "revise_art",
-  "blocking_issues": [
-    "桥体结构没有稳定到可重复出镜",
-    "张果老与白驴比例关系在关键镜头不一致"
-  ],
-  "revision_request": {
-    "target": "art_design",
-    "requested_changes": [
-      "补桥体结构图",
-      "补角色比例锚点"
-    ],
-    "retry_budget": 2
-  }
-}
-```
+### `Shot`
 
-这会触发：
+核心字段：
 
-- 路由到 `art_design`
-- 对应 revision 计数加一
-- 超过预算后直接失败，不再循环
+- `shot_id`
+- `beat_id`
+- `description`
+- `involved_asset_ids`
+- `camera`
+- `first_frame_ref`
+- `last_frame_ref`
+- `style_pack_id`
 
-## 终止条件必须写死
+### `ShotRenderRequest`
 
-没有终止条件的 agent 图，迟早会变成无限打回。
+核心字段：
 
-默认建议：
+- `positive_text`
+- `negative_text`
+- `ref_images`
+- `camera`
+- `duration_seconds`
+- `aspect_ratio`
 
-| 回退目标 | 默认上限 | 触发失败条件 |
-|---|---|---|
-| 编剧 | 2 次 | 结构仍不清晰，或高风险镜头无法通过故事层修复 |
-| 美术 | 2 次 | 角色/桥体/风格锚点仍无法稳定 |
-| 副导演 | 1 次 | 仍然无法形成可执行镜头单 |
-| 总 revision | 5 次 | 项目处于反复拉扯，先停机再人工决策 |
+### `ModelProfile`
 
-## 这套骨架在仓库里怎么落
+核心字段：
 
-代码骨架放在：
+- `max_seconds`
+- `max_ref_images`
+- `role_binding_supported`
+- `required_negative_fragments`
+- `camera_verb_map`
+- `aspect_ratios_supported`
 
+## image / video 队列
+
+### 图片生产
+
+图片生产节点消费 `pending_image_jobs`。
+
+工作分两次：
+
+1. 美术资产图
+2. 分镜首尾帧图
+
+成功时：
+
+- `asset_image` 回写到 `Asset.reference_image_paths`
+- `first_frame / last_frame` 回写到 `Shot.first_frame_ref.image_path` / `Shot.last_frame_ref.image_path`
+
+失败时：
+
+- 单 job 最多重试到 `retry_count >= 2`
+- 失败 2 次后记为 blocking issue
+- 资产图失败默认走 `revise_art`
+- 首尾帧失败默认走 `revise_storyboard`
+
+### 视频生产
+
+视频生产节点消费 `pending_video_jobs`。
+
+- 每个 job 最多重试 1 次
+- 全部 `done` -> `DONE`
+- 任一 `failed` -> `FAILED`
+
+## `compile_shot`
+
+`compile_shot` 做三步：
+
+1. 名字解析与共指消解
+2. 参考图槽位绑定
+3. 按 `ModelProfile` 渲染成 `ShotRenderRequest`
+
+这层是 Slate 和 OpenClaw 模型执行层的真正接口。
+
+## 回退机制
+
+副导演审核不是自由评论，而是结构化 `AdFeedback`：
+
+- `approved`
+- `revise_story`
+- `revise_art`
+- `revise_storyboard`
+- `blocked`
+
+revision budget：
+
+- 编剧 2
+- 美术 2
+- 副导演 1
+- 总 5
+
+另外补一条：
+
+- `image_production` 失败 2 次，作为 blocking issue 走 `revise_art` 或 `revise_storyboard` 回退
+
+## 代码落点
+
+- `runtime/video_agents/assets.py`
 - `runtime/video_agents/schemas.py`
 - `runtime/video_agents/state.py`
 - `runtime/video_agents/services.py`
+- `runtime/video_agents/image_production.py`
+- `runtime/video_agents/video_production.py`
+- `runtime/video_agents/compile.py`
+- `runtime/video_agents/model_profile.py`
+- `runtime/video_agents/segment.py`
+- `runtime/video_agents/feedback.py`
+- `runtime/video_agents/stubs.py`
 - `runtime/video_agents/graph.py`
 - `runtime/video_agents/export_schemas.py`
-
-对应职责：
-
-- `schemas.py`：定义全部 Pydantic 输出对象
-- `state.py`：定义图状态、阶段枚举、revision 预算
-- `services.py`：定义每个 agent 节点的执行接口
-- `graph.py`：定义 LangGraph 状态图和回退路由
-- `export_schemas.py`：把 Pydantic 模型导出成 JSON Schema
-
-## 这层完成后，仓库语义会变化
-
-原来：
-
-- `screenplay-development`
-- `character-prompt-engine`
-- `video-agent-orchestration`
-
-更像是 3 个可手动调用的 skill。
-
-升级后：
-
-- `video-agent-orchestration` 变成顶层 runtime 规范
-- `screenplay-development` 变成 `编剧 Agent` 的内部能力
-- `character-prompt-engine` 变成 `美术设计 Agent` 的内部能力
-
-这时候仓库就不再只是“提示词集”，而是“有状态的前期生产 agent 系统”。
-
-## 官方参考
-
-- [LangGraph docs](https://docs.langchain.com/oss/python/langgraph/overview)
-- [LangGraph persistence](https://docs.langchain.com/oss/python/langgraph/persistence)
-- [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/)
-- [OpenAI Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs)
