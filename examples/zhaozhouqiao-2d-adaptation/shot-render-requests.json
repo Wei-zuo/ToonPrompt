@@ -1,0 +1,302 @@
+[
+  {
+    "shot_id": "shot-01",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Shot: 洨河横亘两岸，赵州桥尚未出现，百姓和车马被水阻断。 | Camera: side truck, extreme wide, high, speed slow",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "zhaozhou-bridge",
+        "image_path": "location/zhaozhou-bridge/bridge-001.png",
+        "slot_hint": "赵州桥"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "侧移",
+      "shot_size": "extreme wide",
+      "position": "high",
+      "speed": "slow"
+    },
+    "duration_seconds": 10.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-02",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 鲁班: 壮年匠人，肩背有力，粗布短衫，双手有石茧; visual hooks: 石锤, 粗布短衫, 低重心 | Asset notes: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Shot: 鲁班夜里凿石起拱，火星与月色交替，他为百姓造桥。 | Camera: tracking shot, medium, front, speed medium",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "luban",
+        "image_path": "character/luban/luban-001.png",
+        "slot_hint": "鲁班"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "跟随",
+      "shot_size": "medium",
+      "position": "front",
+      "speed": "medium"
+    },
+    "duration_seconds": 14.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-03",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Asset notes: 鲁班: 壮年匠人，肩背有力，粗布短衫，双手有石茧; visual hooks: 石锤, 粗布短衫, 低重心 | Shot: 天明后赵州桥完整亮相，百姓试走过桥，鲁班抚桥看着通途。 | Camera: slow dolly in, wide, front, speed slow",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "zhaozhou-bridge",
+        "image_path": "location/zhaozhou-bridge/bridge-001.png",
+        "slot_hint": "赵州桥"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "缓推",
+      "shot_size": "wide",
+      "position": "front",
+      "speed": "slow"
+    },
+    "duration_seconds": 12.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-04",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 张果老: 戏谑但锐利的老仙人，倒骑白驴，带斗笠与褡裢; visual hooks: 倒骑白驴, 斗笠, 褡裢 | Asset notes: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Shot: 云层裂开，张果老倒骑白驴现身，从高处俯看赵州桥。 | Camera: slow dolly in, wide, high, speed slow",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "zhangguolao",
+        "image_path": "character/zhangguolao/zhangguolao-001.png",
+        "slot_hint": "张果老"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "缓推",
+      "shot_size": "wide",
+      "position": "high",
+      "speed": "slow"
+    },
+    "duration_seconds": 12.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-05",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 柴王爷: 厚重沉稳的仙家人物，推独轮车，压五岳而来; visual hooks: 独轮车, 五岳负重, 素朴布衣 | Asset notes: 张果老: 戏谑但锐利的老仙人，倒骑白驴，带斗笠与褡裢; visual hooks: 倒骑白驴, 斗笠, 褡裢; 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定; 鲁班: 壮年匠人，肩背有力，粗布短衫，双手有石茧; visual hooks: 石锤, 粗布短衫, 低重心 | Shot: 柴王爷推独轮车同张果老一起落在桥头，鲁班拱手相迎，赵州桥承接两股神力。 | Camera: slow dolly in, medium, front, speed slow",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "chaiwangye",
+        "image_path": "character/chaiwangye/chaiwangye-001.png",
+        "slot_hint": "柴王爷"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "缓推",
+      "shot_size": "medium",
+      "position": "front",
+      "speed": "slow"
+    },
+    "duration_seconds": 16.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-06",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 张果老: 戏谑但锐利的老仙人，倒骑白驴，带斗笠与褡裢; visual hooks: 倒骑白驴, 斗笠, 褡裢 | Asset notes: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Shot: 张果老倒骑白驴踏上赵州桥，驴蹄落处桥板微沉，褡裢金光渗出。 | Camera: tracking shot, medium, low, speed medium",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "zhangguolao",
+        "image_path": "character/zhangguolao/zhangguolao-001.png",
+        "slot_hint": "张果老"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "跟随",
+      "shot_size": "medium",
+      "position": "low",
+      "speed": "medium"
+    },
+    "duration_seconds": 16.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-07",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 柴王爷: 厚重沉稳的仙家人物，推独轮车，压五岳而来; visual hooks: 独轮车, 五岳负重, 素朴布衣 | Asset notes: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Shot: 柴王爷推独轮车上桥，车轮碾石发出闷响，赵州桥开始吃力，百姓神色由喜转忧。 | Camera: tracking shot, medium, side, speed medium",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "chaiwangye",
+        "image_path": "character/chaiwangye/chaiwangye-001.png",
+        "slot_hint": "柴王爷"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "跟随",
+      "shot_size": "medium",
+      "position": "side",
+      "speed": "medium"
+    },
+    "duration_seconds": 16.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-08",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Shot: 桥心下沉，石缝开裂，赵州桥栏板震动，河水翻涌，百姓惊呼后退。 | Camera: 俯冲, wide, high, speed fast",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "zhaozhou-bridge",
+        "image_path": "location/zhaozhou-bridge/bridge-001.png",
+        "slot_hint": "赵州桥"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "俯冲",
+      "shot_size": "wide",
+      "position": "high",
+      "speed": "fast"
+    },
+    "duration_seconds": 14.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-09",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 鲁班: 壮年匠人，肩背有力，粗布短衫，双手有石茧; visual hooks: 石锤, 粗布短衫, 低重心 | Asset notes: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Shot: 鲁班跃入河中，以双臂托住赵州桥桥腹，他的身躯和石桥正面相抗。 | Camera: 俯冲, wide, low, speed fast",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "luban",
+        "image_path": "character/luban/luban-001.png",
+        "slot_hint": "鲁班"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "俯冲",
+      "shot_size": "wide",
+      "position": "low",
+      "speed": "fast"
+    },
+    "duration_seconds": 22.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-10",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Asset notes: 张果老: 戏谑但锐利的老仙人，倒骑白驴，带斗笠与褡裢; visual hooks: 倒骑白驴, 斗笠, 褡裢; 柴王爷: 厚重沉稳的仙家人物，推独轮车，压五岳而来; visual hooks: 独轮车, 五岳负重, 素朴布衣 | Shot: 掌印、膝痕、车沟、圆坑与蹄印烙进赵州桥石面，仙迹被瞬间定格。 | Camera: 定镜, close, front, speed slow",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "zhaozhou-bridge",
+        "image_path": "location/zhaozhou-bridge/bridge-001.png",
+        "slot_hint": "赵州桥"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "定镜",
+      "shot_size": "close",
+      "position": "front",
+      "speed": "slow"
+    },
+    "duration_seconds": 16.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-11",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Asset notes: 张果老: 戏谑但锐利的老仙人，倒骑白驴，带斗笠与褡裢; visual hooks: 倒骑白驴, 斗笠, 褡裢; 柴王爷: 厚重沉稳的仙家人物，推独轮车，压五岳而来; visual hooks: 独轮车, 五岳负重, 素朴布衣 | Shot: 赵州桥重新稳住，张果老与柴王爷下桥拱手，百姓在桥头欢腾。 | Camera: 拉远, wide, front, speed slow",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "zhaozhou-bridge",
+        "image_path": "location/zhaozhou-bridge/bridge-001.png",
+        "slot_hint": "赵州桥"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "拉远",
+      "shot_size": "wide",
+      "position": "front",
+      "speed": "slow"
+    },
+    "duration_seconds": 16.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  },
+  {
+    "shot_id": "shot-12",
+    "target_model": "__example__",
+    "positive_text": "2D 国风风格包: 2D Chinese folklore animation, blue-gray stone palette, ink-wash edges, golden celestial light, sturdy bridge geometry; visual hooks: 青灰石色, 金色仙光, 水墨边缘 | Reference subjects: 鲁班: 壮年匠人，肩背有力，粗布短衫，双手有石茧; visual hooks: 石锤, 粗布短衫, 低重心 | Asset notes: 赵州桥: 青灰石拱桥，桥腹稳定，栏板清晰，是全片主场景; visual hooks: 青灰石拱, 长虹卧波, 桥腹比例稳定 | Shot: 鲁班湿衣上岸，回望赵州桥浅笑，镜头最后停在桥上仙迹与长虹卧波。 | Camera: 拉远, wide, front, speed slow",
+    "negative_text": "no subtitles, no watermark, no logo",
+    "ref_images": [
+      {
+        "role": "ref_1",
+        "asset_id": "luban",
+        "image_path": "character/luban/luban-001.png",
+        "slot_hint": "鲁班"
+      }
+    ],
+    "first_frame_ref_path": null,
+    "last_frame_ref_path": null,
+    "camera": {
+      "movement": "拉远",
+      "shot_size": "wide",
+      "position": "front",
+      "speed": "slow"
+    },
+    "duration_seconds": 16.0,
+    "aspect_ratio": "16:9",
+    "style_pack_id": "2d-guofeng"
+  }
+]
