@@ -1,0 +1,16 @@
+asset_id: chaiwangye
+asset_type: character
+name: 柴王爷
+aliases:
+  - 柴爷
+description: 厚重沉稳的仙家人物，推独轮车，压五岳而来
+visual_hooks:
+  - 独轮车
+  - 五岳负重
+  - 素朴布衣
+reference_image_paths:
+  - character/chaiwangye/chaiwangye-001.png
+status: approved
+created_by_phase: art_design
+created_by_agent: image_production
+notes: Zhaozhou example asset
