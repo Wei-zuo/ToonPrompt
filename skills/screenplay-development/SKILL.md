@@ -1,9 +1,47 @@
 ---
 name: screenplay-development
-description: 编剧室工作流。用于把灵感、情绪、画面、设定、`一句话故事`、梗概、大纲或剧本初稿，打磨成可拍、可卖、可继续开发的短片、长片、剧集、微短剧与短视频改编方案。Use when Codex needs to generate and compare one-sentence story candidates, continue from a user-selected or user-rewritten line into premise development, Save the Cat beats, character arcs, scene lists, treatments, script doctoring, industrialization, or short-video adaptation.
+description: 编剧 Agent 的内部能力。用于把灵感、情绪、画面、设定、`一句话故事`、梗概、大纲或剧本初稿，打磨成可拍、可卖、可继续开发的故事包，并最终对齐 Slate runtime 的 `StoryPackage` schema。Use when Codex needs to generate one-line stories, premise development, beat sheets, scene plans, script doctoring, or short-video adaptation inside the screenwriter stage.
 ---
 
 # 编剧室 / Screenplay Development
+
+## 定位
+
+本 skill 默认由 `video-agent-orchestration` 在**编剧阶段**调用。
+
+它不再只是“给用户一条 prompt”，而是要把故事推进到能填入 `runtime/video_agents/schemas.py` 的 `StoryPackage`。
+
+## 输出契约
+
+最终至少要能填满这些字段：
+
+- `title`
+- `logline`
+- `synopsis`
+- `adaptation_goal`
+- `format`
+- `emotional_rhythm`
+- `characters: list[CharacterCard]`
+- `scenes: list[SceneSpec]`
+- `beats: list[StoryBeat]`
+- `estimated_total_shots`
+- `narration_style`
+- `dialogue_constraints`
+- `visual_motifs`
+
+如果当前输出还只是 vibe、主题、人物感受，而无法落到上面这些字段，就说明还没结束。
+
+## 与 AssetLibrary 的对接
+
+当故事里新增主要角色时，编剧必须在 `StoryPackage.characters` 里登记：
+
+- `character_id`
+- `name`
+- `dramatic_function`
+- `visual_hooks`
+- `asset_hint`
+
+`asset_hint` 是给制片阶段生成 stub `character` asset 用的，不是可有可无的备注。
 
 ## 总则
 
