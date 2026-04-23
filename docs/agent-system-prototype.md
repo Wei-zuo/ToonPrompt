@@ -2,6 +2,8 @@
 
 这份文档把 `video-agent-orchestration` 的核心结构单独拆出来，方便在仓库外引用。
 
+如果你关心“怎么把这套角色从 prompt 变成真 Agent”，继续看 [agent-runtime-architecture.md](agent-runtime-architecture.md)。
+
 ## 角色
 
 | 角色 | 负责 | 不负责 |
@@ -32,8 +34,8 @@ flowchart TD
 
 | 外部能力来源 | 融合到的角色 | 作用 |
 |---|---|---|
-| `ToonPrompt screenplay-development` | 编剧 | 一句话故事闸门、输入路由、开发顺序、结构压力测试 |
-| `ToonPrompt character-prompt-engine` | 美术设计 | 角色一致性锚点、任务模式、提示词优先级、模型适配思路 |
+| `Slate screenplay-development` | 编剧 | 一句话故事闸门、输入路由、开发顺序、结构压力测试 |
+| `Slate character-prompt-engine` | 美术设计 | 角色一致性锚点、任务模式、提示词优先级、模型适配思路 |
 
 ## 核心原则
 
