@@ -1,0 +1,16 @@
+asset_id: zhangguolao
+asset_type: character
+name: 张果老
+aliases:
+  - 张果佬
+description: 戏谑但锐利的老仙人，倒骑白驴，带斗笠与褡裢
+visual_hooks:
+  - 倒骑白驴
+  - 斗笠
+  - 褡裢
+reference_image_paths:
+  - character/zhangguolao/zhangguolao-001.png
+status: approved
+created_by_phase: art_design
+created_by_agent: image_production
+notes: Zhaozhou example asset
