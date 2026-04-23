@@ -1,0 +1,16 @@
+asset_id: luban
+asset_type: character
+name: 鲁班
+aliases:
+  - 鲁师傅
+description: 壮年匠人，肩背有力，粗布短衫，双手有石茧
+visual_hooks:
+  - 石锤
+  - 粗布短衫
+  - 低重心
+reference_image_paths:
+  - character/luban/luban-001.png
+status: approved
+created_by_phase: art_design
+created_by_agent: image_production
+notes: Zhaozhou example asset
