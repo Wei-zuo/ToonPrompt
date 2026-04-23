@@ -76,31 +76,6 @@ flowchart LR
 
 每个 `Asset` 包含：`name / aliases / description / visual_hooks / reference_image_paths / status`。
 
-**实际产出长这样**（来自 `examples/zhaozhouqiao-2d-adaptation/`）：
-
-<table>
-<tr>
-<td align="center">
-<img src="examples/zhaozhouqiao-2d-adaptation/assets/character/luban/luban-001.png" width="180"/><br/>
-<sub><b>鲁班</b><br/><code>character</code></sub>
-</td>
-<td align="center">
-<img src="examples/zhaozhouqiao-2d-adaptation/assets/character/zhangguolao/zhangguolao-001.png" width="180"/><br/>
-<sub><b>张果老</b><br/><code>character</code></sub>
-</td>
-<td align="center">
-<img src="examples/zhaozhouqiao-2d-adaptation/assets/character/chaiwangye/chaiwangye-001.png" width="180"/><br/>
-<sub><b>柴王爷</b><br/><code>character</code></sub>
-</td>
-<td align="center">
-<img src="examples/zhaozhouqiao-2d-adaptation/assets/location/zhaozhou-bridge/bridge-001.png" width="180"/><br/>
-<sub><b>赵州桥</b><br/><code>location</code></sub>
-</td>
-</tr>
-</table>
-
-这四张图不是最终镜头，而是存进 `AssetLibrary` 里的**身份锚点**——后面 `compile_shot` 每次遇到`鲁班`、`张果老`、`赵州桥`这些名字，会按 `ModelProfile.max_ref_images` 槽位能力把它们注入到视频模型的参考图里，替代模型原本听不懂的文字名。
-
 **Asset 生命周期：**
 
 ```mermaid
@@ -213,6 +188,31 @@ python examples/zhaozhouqiao-2d-adaptation/scripts/build_demo.py
 ## 示例：赵州桥 2D 动画改编
 
 `examples/zhaozhouqiao-2d-adaptation/` 是一个从"现成剧本"推到 `shot-render-requests.json` 的完整样例，同时保留人读的 markdown 和机器吃的 JSON。
+
+**由美术部分批量制作的角色与场景锚点：** 美术设计 Agent 产出 `ArtGenerationPlan`，图片生产 Agent 一次性跑完下面四个 asset，写回 `AssetLibrary`。
+
+<table>
+<tr>
+<td align="center">
+<img src="examples/zhaozhouqiao-2d-adaptation/assets/character/luban/luban-001.png" width="180"/><br/>
+<sub><b>鲁班</b><br/><code>character</code></sub>
+</td>
+<td align="center">
+<img src="examples/zhaozhouqiao-2d-adaptation/assets/character/zhangguolao/zhangguolao-001.png" width="180"/><br/>
+<sub><b>张果老</b><br/><code>character</code></sub>
+</td>
+<td align="center">
+<img src="examples/zhaozhouqiao-2d-adaptation/assets/character/chaiwangye/chaiwangye-001.png" width="180"/><br/>
+<sub><b>柴王爷</b><br/><code>character</code></sub>
+</td>
+<td align="center">
+<img src="examples/zhaozhouqiao-2d-adaptation/assets/location/zhaozhou-bridge/bridge-001.png" width="180"/><br/>
+<sub><b>赵州桥</b><br/><code>location</code></sub>
+</td>
+</tr>
+</table>
+
+这些图不是最终镜头，而是身份锚点——后面 `compile_shot` 遇到`鲁班`、`张果老`、`赵州桥`这些名字，会按 `ModelProfile.max_ref_images` 能力把它们注入到视频模型的参考图槽位，替代模型原本听不懂的文字名。
 
 它验证的不是"一键出片"，而是：
 
