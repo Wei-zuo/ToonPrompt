@@ -2,76 +2,85 @@
 
 ## `brief.md`
 
-Defines project target, platform, runtime, audience, constraints, and round scope.
+定义：
+
+- 项目目标
+- 平台 / 画幅 / 时长
+- 目标受众
+- required elements
+- forbidden drift
+- 本轮 scope
+
+对应结构化产物：`ProjectBrief`
 
 ## `story_package.md`
 
-Should contain:
+应包含：
 
-- one-line concept
-- adaptation strategy if relevant
+- one-line concept / logline
+- adaptation strategy
 - synopsis
 - emotional rhythm
+- `characters: list[CharacterCard]`
+- `scenes: list[SceneSpec]`
+- `beats: list[StoryBeat]`
 - roles and goals
 - draft narration or dialogue
 - promised hook and recognition requirement when relevant
 - notes for art
 - notes for assistant director
 
+对应结构化产物：`StoryPackage`
+
 ## `art_package.md`
 
-Should contain:
+应包含：
 
 - overall visual direction
 - color and lighting
-- character anchor blocks
+- character / location / prop / style-pack anchor blocks
 - costume and prop system
 - environment and set notes
 - literal vs metaphorical reveal decision when the concept depends on a transformation or gag
+- prompt strategy
 - prompt blocks when needed
 - continuity constraints
 
+对应结构化产物：`ArtGenerationPlan`
+
 ## `storyboard.md`
 
-Should be executable, not poetic.
+必须是可执行分镜，不是诗意说明。
 
-Minimum columns:
+至少包含：
 
 - shot number
+- beat id
 - duration
 - shot size
 - camera move
 - action
-- dialogue or narration
-- emotion
+- first / last frame spec
 - production requirement
+
+对应结构化产物：`StoryboardPackage`
 
 ## `ad_feedback.md`
 
-Should identify:
+必须指出：
 
 - what screenwriter must fix
 - what art design must fix
+- what storyboard must fix
 - execution risks
 - which shots to test first
 - whether the promised hook still reads clearly on first watch
 
-## `schedule.md`
-
-Should define:
-
-- production order
-- priority bands
-- risk shots
-- round-based sequencing
-
-## `production_todo.md`
-
-Should translate the packet into concrete execution tasks with priorities and output requirements.
+对应结构化产物：`AdFeedback`
 
 ## `production_packet.md`
 
-The packet should summarize:
+必须总结：
 
 - project
 - required reads
@@ -79,3 +88,6 @@ The packet should summarize:
 - global constraints
 - shot-level notes
 - producer go / no-go judgment
+- compiled `ShotRenderRequest[]`
+
+对应结构化产物：`ProductionPacket`
